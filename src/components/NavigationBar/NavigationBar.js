@@ -3,44 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import {Paper, Tab, Tabs, Typography, Container} from '@material-ui/core';
 
-const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-    display: "flex",
-    paddingBottom: "10px",
-    backgroundColor: "#272C34",
-  },
-  logo:{
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    height: "auto",
-    color: "white"
-  },
-  cart: {
-    height: "auto",
-    color: "white",
-    "&:hover":{
-      cursor: "pointer",
-    }
-  },
-  indicator: {
-    backgroundColor: "silver",
-  },
-  flexContainer: {
-    justifyContent: "flex-end",
-  },
-  tabSpacing: {
-    fontSize: "1rem",
-    margin: "0 5px",
-    color: "white"
-  },
-  tabs: {
-    display: "flex",
-    justifyContent: "center"
-  }
-});
-
 
 function NavigationBar() {
   const classes = useStyles();
@@ -74,3 +36,45 @@ function NavigationBar() {
 }
 
 export default NavigationBar;
+
+
+/**STYLES**/
+
+const useStyles = makeStyles({
+  root: {
+    flexGrow: 1,
+    display: "flex",
+    height: "5vh",
+    paddingBottom: "1vh",
+    backgroundColor: "#151616",
+  },
+  logo:{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "auto",
+    color: "white"
+  },
+  cart: {
+    height: "auto",
+    color: "white",
+    "&:hover":{
+      cursor: "pointer",
+    }
+  },
+  indicator: {
+    backgroundColor: "silver",
+  },
+  flexContainer: {
+    justifyContent: "flex-end",
+  },
+  tabSpacing: {
+    fontSize: "1rem",
+    margin: "0 5px",
+    color: "white"
+  },
+  tabs: {
+    display: "flex",
+    justifyContent: "center"
+  }
+});

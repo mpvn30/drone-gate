@@ -2,6 +2,7 @@ import React from 'react';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import './index.css'
+import Home from './components/Home/Home';
 
 const theme = createMuiTheme({
   typography: {
@@ -14,6 +15,7 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme}>
         <NavigationBar />
+        <Home />
       </ThemeProvider>
     </div>
   );
