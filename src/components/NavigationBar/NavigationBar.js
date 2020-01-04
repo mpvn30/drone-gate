@@ -21,7 +21,7 @@ function NavigationBar() {
       </Container>
       <Container className={classes.tabs}>
         <Tabs
-          classes={{ indicator: classes.indicator, flexContainer: classes.flexContainer, textColor: "white" }}
+          classes={{ indicator: classes.indicator, flexContainer: classes.flexContainer}}
           value={value}
           onChange={handleChange}
           indicatorColor="primary"

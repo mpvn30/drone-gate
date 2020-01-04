@@ -8,49 +8,64 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 345,
+    margin: "50px",
+    maxWidth: "300px",
+    maxHeight: "500px",
+    display: "inline-flex",
+    flexDirection: "column"
   },
   media: {
-    height: 140,
+    height: 200,
+    objectFit: "contain"
   },
+  buttons: {
+    margin: "0",
+    marginBottom: 10,
+  },
+  button: {
+    backgroundColor: "#A7D32F"
+  }
 });
 
 function Shop({items}) {
   const classes = useStyles();
+  console.log(items)
     return (
-        <Card className={classes.card}>
+      <Container classname={classes.container} >
           {items.map (item => (
-            <>
-              <CardActionArea>
+            <Card className={classes.card} raised>
               <CardMedia
                 className={classes.media}
-                image="/static/images/cards/contemplative-reptile.jpg"
+                component="img"
+                image={item.img}
                 title="Contemplative Reptile"
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                  Lizard
+                  {item.name}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                  across all continents except Antarctica
+                  Description: {item.desc}
+                </Typography>
+                <Typography variant="body2" color="default" component="p"style={{marginTop: "10px"}} >
+                  Price: {item.price} USD
                 </Typography>
               </CardContent>
-              </CardActionArea>
-              <CardActions>
-              <Button size="small" color="primary">
+              <CardActions className={classes.buttons}>
+              <Button size="small" color="default">
                 View
               </Button>
-              <Button size="small" color="primary">
+              <Button variant="contained" size="small" color="primary" className={classes.button}>
                 Add to Cart
               </Button>
               </CardActions>
-            </>
+            </Card>
           ))}
-        </Card>
+      </Container>
       );
 
 }
