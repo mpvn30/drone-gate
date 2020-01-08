@@ -10,6 +10,7 @@ const useStyles = makeStyles({
     maxWidth: "100%",
     position: "relative"
   },
+
   header: {
     padding: 0,
     margin: 0,

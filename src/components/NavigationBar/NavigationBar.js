@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import {Paper, Tab, Tabs, Typography, Container} from '@material-ui/core';
@@ -26,9 +27,9 @@ function NavigationBar() {
           onChange={handleChange}
           indicatorColor="primary"
         >
-          <Tab label="Home" className={classes.tabSpacing} />
-          <Tab label="Shop" className={classes.tabSpacing} />
-          <ShoppingCartIcon className={classes.cart} />
+          <Tab value={0} label="Home" className={classes.tabSpacing} component={Link} to="/" />
+          <Tab value={1} label="Shop" className={classes.tabSpacing} component={Link} to="/shop"/>
+          <Tab value={2} label="Cart" className={classes.tabSpacing} component={Link} to="/cart"/>
         </Tabs>
       </Container>
     </Paper>

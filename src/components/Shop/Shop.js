@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { connect } from 'react-redux'
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
-const useStyles = makeStyles({
+const styles = theme => ({
   card: {
     margin: "50px",
     maxWidth: "300px",
@@ -31,50 +31,43 @@ const useStyles = makeStyles({
   }
 });
 
-function Shop({items}) {
-  const classes = useStyles();
-  console.log(items)
+class Shop extends Component {
+  
+  render(){
+    const { classes } = this.props
     return (
-      <Container classname={classes.container} >
-          {items.map (item => (
+      <Container >
             <Card className={classes.card} raised>
               <CardMedia
                 className={classes.media}
                 component="img"
-                image={item.img}
+                image="img"
                 title="Contemplative Reptile"
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                  {item.name}
+                  
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  Description: {item.desc}
+                  Description:
                 </Typography>
                 <Typography variant="body2" color="default" component="p"style={{marginTop: "10px"}} >
-                  Price: {item.price} USD
+                  Price: USD
                 </Typography>
               </CardContent>
               <CardActions className={classes.buttons}>
               <Button size="small" color="default">
                 View
               </Button>
-              <Button variant="contained" size="small" color="primary" className={classes.button}>
+              <Button variant="contained" size="small" color="primary" className={classes.button} >
                 Add to Cart
               </Button>
               </CardActions>
             </Card>
-          ))}
       </Container>
       );
-
-}
-
-const mapStateToProps = (state) => {
-    return {
-        items: state.items
-    }
+  }
 }
 
 
-export default connect(mapStateToProps)(Shop);
+export default withStyles(styles)(Shop);
