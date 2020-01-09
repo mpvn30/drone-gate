@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles';
+import { addToCart } from '../actions/cartActions'
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -33,41 +34,62 @@ const styles = theme => ({
 
 class Shop extends Component {
   
+  handleClick = (id) => {
+    this.props.addToCart(id)
+  }
+
   render(){
     const { classes } = this.props
+    
+    let itemList = this.props.items.map(item => {
+      return(
+        <Card className={classes.card} key={item.id} raised>
+          <CardMedia
+            className={classes.media}
+            component="img"
+            image="img"
+            title="Contemplative Reptile"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">
+              {item.title}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {item.desc}
+            </Typography>
+            <Typography variant="body2" color="default" component="p"style={{marginTop: "10px"}} >
+              {item.price}
+            </Typography>
+          </CardContent>
+          <CardActions className={classes.buttons}>
+          <Button size="small" color="default">
+            View
+          </Button>
+          <Button to="cart" variant="contained" size="small" color="primary" className={classes.button} onClick={()=>{this.handleClick(item.id)}} >
+            Add to Cart
+          </Button>
+          </CardActions>
+        </Card>
+      )
+    })
     return (
-      <Container >
-            <Card className={classes.card} raised>
-              <CardMedia
-                className={classes.media}
-                component="img"
-                image="img"
-                title="Contemplative Reptile"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  Description:
-                </Typography>
-                <Typography variant="body2" color="default" component="p"style={{marginTop: "10px"}} >
-                  Price: USD
-                </Typography>
-              </CardContent>
-              <CardActions className={classes.buttons}>
-              <Button size="small" color="default">
-                View
-              </Button>
-              <Button variant="contained" size="small" color="primary" className={classes.button} >
-                Add to Cart
-              </Button>
-              </CardActions>
-            </Card>
-      </Container>
+      <div>{itemList}</div>
       );
   }
 }
 
+const mapStateToProps = (state)=>{
+  return {
+    items: state.items
+  }
+}
+const mapDispatchToProps= (dispatch)=>{
+  
+  return{
+      addToCart: (id)=>{dispatch(addToCart(id))}
+  }
+}
 
-export default withStyles(styles)(Shop);
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Shop));
+
