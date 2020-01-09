@@ -1,6 +1,27 @@
 import React, { Component } from 'react'
+import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux'
 //import { addShipping } from './actions/cartActions'
+
+const styles = theme => ({
+    container: {
+        width: "100%",
+        height: "100px",
+    },
+    collection: {
+        display: "flex",
+        height: "75px",
+        width: "50%",
+        margin: "0 80%",
+        flexDirection: "column",
+        justifyContent: "space-evenly",
+    },
+    checkout: {
+        width: "50%",
+        margin: "0 80%",
+    }
+  });
+
 class CartButtons extends Component{
     
     componentWillUnmount() {
@@ -18,10 +39,10 @@ class CartButtons extends Component{
     }
 
     render(){
-  
+        const { classes } = this.props
         return(
-            <div className="container">
-                <div className="collection">
+            <div className={classes.container}>
+                <div className={classes.collection}>
                     <li className="collection-item">
                             <label>
                                 <input type="checkbox" ref="shipping" onChange= {this.handleChecked} />
@@ -30,7 +51,7 @@ class CartButtons extends Component{
                         </li>
                         <li className="collection-item"><b>Total: {this.props.total} $</b></li>
                     </div>
-                    <div className="checkout">
+                    <div className={classes.checkout}>
                         <button className="waves-effect waves-light btn">Checkout</button>
                     </div>
                  </div>
@@ -52,4 +73,4 @@ const mapDispatchToProps = (dispatch)=>{
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(CartButtons)
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(CartButtons));

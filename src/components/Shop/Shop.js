@@ -9,11 +9,11 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
+
 
 const styles = theme => ({
   card: {
-    margin: "50px",
+    margin: "20px",
     maxWidth: "300px",
     maxHeight: "500px",
     display: "inline-flex",
@@ -24,11 +24,24 @@ const styles = theme => ({
     objectFit: "contain"
   },
   buttons: {
-    margin: "0",
+    width: "90%",
     marginBottom: 10,
+    display: "flex",
+    justifyContent: "center"
   },
   button: {
     backgroundColor: "#A7D32F"
+  },
+  header: {
+    width: "100%",
+    textAlign: "center"
+  },
+  itemContainer: {
+    width: "80%",
+    margin: "0 auto",
+    display: "flex",
+    justifyContent: "center",
+    flexWrap: "wrap"
   }
 });
 
@@ -62,18 +75,21 @@ class Shop extends Component {
             </Typography>
           </CardContent>
           <CardActions className={classes.buttons}>
-          <Button size="small" color="default">
-            View
-          </Button>
-          <Button to="cart" variant="contained" size="small" color="primary" className={classes.button} onClick={()=>{this.handleClick(item.id)}} >
-            Add to Cart
-          </Button>
+            <Button size="small" color="default">
+              View
+            </Button>
+            <Button variant="contained" size="small" color="primary" className={classes.button} onClick={()=>{this.handleClick(item.id)}} >
+              Add to Cart
+            </Button>
           </CardActions>
         </Card>
       )
     })
     return (
-      <div>{itemList}</div>
+      <>
+        <h1 className={classes.header}>The Drone Pro Series</h1>
+        <div className={classes.itemContainer}>{itemList}</div>
+      </>
       );
   }
 }

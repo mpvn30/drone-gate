@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {CardMedia, Container, Button} from '@material-ui/core';
 import homeBg from '../../resources/videos/home-bg.mp4'
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   container: {
@@ -56,7 +57,7 @@ function Home() {
         <div className={classes.header}>
           <h1 className={classes.headline}>WELCOME TO THE REVOLUTION</h1>
           <h3 className={classes.subtitle}>Experience Drone videography at its finest.</h3>
-          <Button className={classes.button} variant="contained" >Shop now!</Button>
+          <Button className={classes.button} variant="contained" component={Link} to="/shop">Shop now!</Button>
         </div>
         <CardMedia 
         classes={{ media: classes.video }}
