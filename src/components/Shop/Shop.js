@@ -27,10 +27,11 @@ const styles = theme => ({
     width: "90%",
     marginBottom: 10,
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
+    marginTop: "auto"
   },
   button: {
-    backgroundColor: "#A7D32F"
+    backgroundColor: "#A7D32F",
   },
   header: {
     width: "100%",
@@ -60,7 +61,7 @@ class Shop extends Component {
           <CardMedia
             className={classes.media}
             component="img"
-            image="img"
+            image={item.img}
             title="Contemplative Reptile"
           />
           <CardContent>
@@ -75,7 +76,7 @@ class Shop extends Component {
             </Typography>
           </CardContent>
           <CardActions className={classes.buttons}>
-            <Button size="small" color="default">
+            <Button variant="contained" size="small" color="default">
               View
             </Button>
             <Button variant="contained" size="small" color="primary" className={classes.button} onClick={()=>{this.handleClick(item.id)}} >

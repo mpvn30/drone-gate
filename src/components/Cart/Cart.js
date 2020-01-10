@@ -16,11 +16,31 @@ const styles = theme => ({
     paddingTop: "50px",
     display: "flex",
     flexDirection: "column",
-    width: "50%",
+    width: "40%",
     margin: "0 auto"
   },
   added: {
     width: "100%"
+  },
+  media: {
+    height: 150,
+    width: 150,
+    margin: "25px",
+    objectFit: "contain"
+  },
+  addedList: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    margin: 20
+  },
+  addedTitle: {
+    fontSize: "1.8rem",
+    fontWeight: "bold",
+    margin: 0
+  },
+  addedPrice: {
+    fontSize: "1.2rem",
   }
 });
 
@@ -50,13 +70,15 @@ class Cart extends Component{
               <div>
                 <CardMedia
                 component="img"
-                image="img"
-                title="Contemplative Reptile"
+                image={item.img}
+                title={item.title}
+                className={classes.media}
                 />
               </div>
-              <div>
-                <p>{item.title}</p>
-                <p>{item.price}</p>
+              <div className={classes.addedList}>
+                <p className={classes.addedTitle}>{item.title}</p>
+                <p>{item.desc}</p>
+                <p className={classes.addedPrice}>Price: {item.price}USD</p>
               </div>
             </Paper>
             
