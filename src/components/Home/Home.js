@@ -34,7 +34,7 @@ const useStyles = makeStyles({
   video: {
     objectFit: "cover",
     height: "94vh",
-    filter:"grayscale(100%) brightness(40%)",
+    filter:"brightness(40%)",
   },
   headline: {
     fontFamily:"Josefin Slab",

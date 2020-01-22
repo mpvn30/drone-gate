@@ -2,16 +2,21 @@
 import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING } from '../actions/action-types/cart-actions'
 
 import Item1 from '../../resources/images/img1.jpg'
+import Item2 from '../../resources/images/img2.jpg'
+import Item3 from '../../resources/images/img3.jpg'
+import Item4 from '../../resources/images/img4.jpg'
+import Item5 from '../../resources/images/img5.jpg'
+import Item6 from '../../resources/images/img6.jpg'
 
 
 const initState = {
     items: [
         {id:1,title:'Mavic Mini', desc: "249 g Ultralight | 30-min Max. Flight Time | 4 km HD Video Transmission | Vision Sensor + GPS Precise Hover | 3-Axis Gimbal 2.7K Camera | Simplified Recording & Editing", price:339,img:Item1},
-        {id:2,title:'Adidas', desc: "249 g Ultralight | 30-min Max. Flight Time | 4 km HD Video Transmission | Vision Sensor + GPS Precise Hover | 3-Axis Gimbal 2.7K Camera | Simplified Recording & Editing", price:80,img:Item1},
-        {id:3,title:'Vans', desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.",price:120,img: Item1},
-        {id:4,title:'White', desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.", price:260,img:"Item4"},
-        {id:5,title:'Cropped-sho', desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.", price:160,img: "Item5"},
-        {id:6,title:'Blues', desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.",price:90,img: "Item6"}
+        {id:2,title:'Mavic 2 Pro', desc: "Hasselblad Camera | 20 MP 1” CMOS Sensor | Adjustable Aperture | 10-bit Dlog-M colour profile | 10-bit HDR Video | Hyperlapse | 8 km 1080p Video Transmission | 31min flight time", price:1499,img:Item2},
+        {id:3,title:'Mavic 2 Zoom', desc: "2× Optical Zoom Camera | 4× Lossless Zoom FHD Video | 48MP Super Resolution Photo | Dolly Zoom | Hyperlapse | 8 km 1080p Video Transmission | 31min flight time",price:1249,img: Item3},
+        {id:4,title:'Mavic Air', desc: "32 MP Sphere Panoramas | Foldable & Portable | 3-Axis Gimbal & 4K Camera | 3-Directional Environment Sensing | SmartCapture | 21-Minute Flight Time", price:919,img:Item4},
+        {id:5,title:'Mavic Pro Platinum', desc: "32 MP Sphere Panoramas | Foldable & Portable | 3-Axis Gimbal & 4K Camera | 3-Directional Environment Sensing | SmartCapture | 21-Minute Flight Time", price:1149,img: Item5},
+        {id:6,title:'Mavic Pro', desc: "4K Camera | 12 MP Photos | 7 km Range | 65 kph Max Speed",price:999,img: Item6}
     ],
     addedItems:[],
     total: 0
